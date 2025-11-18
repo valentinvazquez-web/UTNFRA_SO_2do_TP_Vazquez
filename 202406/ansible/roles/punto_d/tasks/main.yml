@@ -1,0 +1,45 @@
+---
+- name: Asegurar que el grupo de supervisores exista
+  become: true
+  group:
+    name: "{{ supervisors_group }}"
+    state: present
+
+- name: Crear estructura de directorios
+  become: true
+  file:
+    path: "{{ base_path }}/{{ item }}"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: '0755'
+  loop:
+    - alumno
+    - equipo
+
+- name: Generar datos_alumno.txt desde plantilla
+  become: true
+  template:
+    src: datos_alumno.txt.j2
+    dest: "{{ base_path }}/alumno/datos_alumno.txt"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: '0644'
+
+- name: Generar datos_equipo.txt desde plantilla
+  become: true
+  template:
+    src: datos_equipo.txt.j2
+    dest: "{{ base_path }}/equipo/datos_equipo.txt"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: '0644'
+
+- name: Crear archivo sudoers para el grupo 2PSupervisores
+  become: true
+  template:
+    src: sudoers_2psupervisores.j2
+    dest: "/etc/sudoers.d/2psupervisores"
+    owner: root
+    group: root
+    mode: '0440'
