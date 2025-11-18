@@ -8,10 +8,8 @@ mkdir -p "$RTA_DIR"
 CMD_FILE="$RTA_DIR/comandos_ejecutados.txt"
 OUT_FILE="$RTA_DIR/salida_playbook.txt"
 
-# Guardar comandos ejecutados (para entregar en el examen)
 echo "ansible-playbook -i localhost, -c local playbooks/punto_d_play.yml" | tee "$CMD_FILE"
 
-# Ejecutar playbook y guardar salida
 ansible-playbook -i localhost, -c local playbooks/punto_d_play.yml \
   | tee "$OUT_FILE"
 
