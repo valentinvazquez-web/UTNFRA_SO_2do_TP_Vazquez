@@ -284,3 +284,26 @@ git add 202406/
 historya -a
 history -a
 mv RTA_Examen_20251117 RTA_Examen_$(date +%Y%m%d)
+cp -r /ruta/202406 ~/UTNFRA_SO_2do_TP_Vazquez/
+cp -r /ruta/RTA_Examen_$(date +%Y%m%d) ~/UTNFRA_SO_2do_TP_Vazquez/
+cp $HOME/.bash_history ~/UTNFRA_SO_2do_TP_Vazquez/
+git add 202406/
+git add RTA_Examen_$(date +%Y%m%d)/
+git add .bash_history
+git commit -m "Subo 2do parcial, examen y historial de bash"
+git push origin main
+git checkout HEAD^ -- 202406/
+git log --oneline
+git checkout abc1234 -- 202406/
+git checkout 749add2 -- 202406/
+ls 202406/
+git add 202406/
+git commit -m "Recupero carpeta 202406"
+git push origin main
+git rm -r RTA_Examen_20251117/
+git commit -m "Elimino RTA_Examen_20251117, mantengo solo la más reciente"
+git push origin main
+history -a
+cp $HOME/.bash_history ~/UTNFRA_SO_2do_TP_Vazquez/.bash_history
+ls -l ~/UTNFRA_SO_2do_TP_Vazquez/
+history -a
