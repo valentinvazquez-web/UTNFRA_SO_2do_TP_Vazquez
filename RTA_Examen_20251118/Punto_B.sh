@@ -1,4 +1,3 @@
-
 sudo nano /usr/local/bin/vazquezAltaUser-Groups.sh
 
 sudo chmod +x /usr/local/bin/vazquezAltaUser-Groups.sh
