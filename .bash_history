@@ -28,6 +28,61 @@ cd ~
 git clone https://github.com/valentinvazquez-web/UTNFRA_SO_2do_TP_Vazquez.git
 cd ~/UTNFRA_SO_2do_TP_Vazquez
 
+lsblk
+
+sudo pvcreate /dev/sdb
+sudo pvcreate /dev/sdc
+sudo pvdisplay
+
+sudo vgcreate vg_datos /dev/sdb
+sudo vgcreate vg_temp /dev/sdc
+sudo vgdisplay
+
+sudo lvcreate -L 5M -n lv_docker vg_datos
+sudo lvcreate -L 1.5G -n lv_workareas vg_datos
+sudo lvcreate -L 512M -n lv_swap vg_temp
+sudo lvdisplay
+
+sudo mkfs.ext4 /dev/vg_datos/lv_docker
+sudo mkfs.ext4 /dev/vg_datos/lv_workareas
+sudo mkswap /dev/vg_temp/lv_swap
+
+sudo mkdir -p /var/lib/docker
+sudo mkdir -p /work
+
+sudo mount /dev/vg_datos/lv_docker /var/lib/docker
+sudo mount /dev/vg_datos/lv_workareas /work
+sudo swapon /dev/vg_temp/lv_swap
+
+echo "/dev/vg_datos/lv_docker /var/lib/docker ext4 defaults 0 2" | sudo tee -a /etc/fstab
+echo "/dev/vg_datos/lv_workareas /work ext4 defaults 0 2" | sudo tee -a /etc/fstab
+echo "/dev/vg_temp/lv_swap swap swap defaults 0 0" | sudo tee -a /etc/fstab
+
+lsblk
+df -h
+vgs
+lvs
+swapon -s
+
+mkdir -p $HOME/RTA_Examen_20251118
+echo "sudo pvcreate /dev/sdb
+sudo pvcreate /dev/sdc
+sudo vgcreate vg_datos /dev/sdb
+sudo vgcreate vg_temp /dev/sdc
+sudo lvcreate -L 5M -n lv_docker vg_datos
+sudo lvcreate -L 1.5G -n lv_workareas vg_datos
+sudo lvcreate -L 512M -n lv_swap vg_temp
+sudo mkfs.ext4 /dev/vg_datos/lv_docker
+sudo mkfs.ext4 /dev/vg_datos/lv_workareas
+sudo mkswap /dev/vg_temp/lv_swap
+sudo mkdir -p /var/lib/docker
+sudo mkdir -p /work
+sudo mount /dev/vg_datos/lv_docker /var/lib/docker
+sudo mount /dev/vg_datos/lv_workareas /work
+sudo swapon /dev/vg_temp/lv_swap" > ~/RTA_Examen_20251118/Punto_A.sh
+
+chmod +x ~/RTA_Examen_20251118/Punto_A.sh
+
 sudo cp ~/UTN-FRA_SO_Examenes/202406/bash_script/Lista_Usuarios.txt .
 sudo cp /usr/local/bin/vazquezAltaUser-Groups.sh .
 chmod +x vazquezAltaUser-Groups.sh
