@@ -1,0 +1,11 @@
+---
+alumno_nombre: "Valentin"
+alumno_apellido: "Vazquez"
+alumno_division: "116"
+
+equipo_ip: "10.0.2.15"
+equipo_distro: "Ubuntu 22.04.5 LTS"
+equipo_cores: "2"
+
+base_path: "/tmp/2do_parcial"
+supervisors_group: "2PSupervisores"
