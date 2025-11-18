@@ -248,3 +248,39 @@ history -a
 cp ~/.bash_history 
 cp ~/.bash_history .
 history -a
+cp ~/.bash_history .
+ls -l .bash_history
+git add .bash_history RTA_Examen_20251117 202406
+git commit -m "Punto E completo: subida de .bash_history, RTA y 202406"
+git push
+ls -a
+ls 202406
+ls RTA_Examen_20251117
+git mv ruta_actual_del_archivo 202406/202406_2doParcial.pdf  
+git mv ruta_script_Precondicion.sh 202406/script_Precondicion.sh  
+# por ejemplo para los scripts del examen:
+git mv Punto_A.sh RTA_Examen_20251117/Punto_A.sh  
+# y lo mismo para los otros
+ls
+ls 202406
+ls RTA_Examen_20251117
+git mv 202406_2doParcial.pdf 202406/
+git mv script_Precondicion.sh 202406/
+git mv _checks 202406/
+git mv ansible 202406/
+git mv bash_script 202406/
+git mv docker 202406/
+git mv 202406_2doParcial.pdf 202406/
+git mv script_Precondicion.sh 202406/
+mv 202406 202406_tmp
+mkdir 202406
+git mv 202406_2doParcial.pdf 202406/
+git mv script_Precondicion.sh 202406/
+mv _checks 202406/
+mv ansible 202406/
+mv bash_script 202406/
+mv docker 202406/
+git add 202406/
+historya -a
+history -a
+mv RTA_Examen_20251117 RTA_Examen_$(date +%Y%m%d)

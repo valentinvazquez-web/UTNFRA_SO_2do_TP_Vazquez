@@ -1,3 +1,0 @@
-devs;juan;pablo;marcos
-qa;sofia;luis
-infra;valentin
