@@ -1,11 +1,9 @@
 pwd
-# Add Docker's official GPG key:
 sudo apt update
 sudo apt install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
-# Add the repository to Apt sources:
 sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
 Types: deb
 URIs: https://download.docker.com/linux/ubuntu
@@ -257,8 +255,7 @@ ls -a
 ls 202406
 ls RTA_Examen_20251117
 git mv ruta_actual_del_archivo 202406/202406_2doParcial.pdf  
-git mv ruta_script_Precondicion.sh 202406/script_Precondicion.sh  
-# por ejemplo para los scripts del examen:
+git mv ruta_script_Precondicion.sh 202406/script_Precondicion.sh   
 git mv Punto_A.sh RTA_Examen_20251117/Punto_A.sh  
 # y lo mismo para los otros
 ls
